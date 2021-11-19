@@ -16,7 +16,7 @@ const StyledHeader = styled.div`
 const Header = () => {
   return (
     <StyledHeader> 
-      <h1>CV creator</h1>
+      <h1>CV builder</h1>
     </StyledHeader>
   )
 }
