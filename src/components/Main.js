@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SectionHeader from './assets/SectionHeader';
+import ActionButtons from './sections/ActionButtons';
 
 const StyledContainer = styled.div`
   border: 1px solid green;
@@ -23,6 +24,7 @@ const Main = () => {
         <SectionHeader className="info" text="General Info" />
         <SectionHeader className="education" text="Education" />
         <SectionHeader className="work" text="Work Experience" />
+        <ActionButtons />
       </StyledForm>
     </StyledContainer>
   )
