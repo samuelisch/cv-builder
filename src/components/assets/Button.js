@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
   border-radius: 10px;
   border: 1px solid black;
-  background-color: grey;
+  background-color: rgb(240, 240, 240);
 `;
 
 const Button = ({ className, type, clickHandler, text}) => {

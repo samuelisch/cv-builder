@@ -45,5 +45,5 @@ it("has background color of grey by default", () => {
   const component = render(
     <Button />
   )
-  expect(component.container.firstChild).toHaveStyle(`background-color: grey`);
+  expect(component.container.firstChild).toHaveStyle(`background-color: rgb(240, 240, 240)`);
 });
