@@ -2,24 +2,22 @@ import React from 'react';
 import Button from '../assets/Button';
 import styled from 'styled-components';
 
-const ResetButton = styled(Button)`
-  &:hover {
-    background: red;
+const StyledButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+
+  .download:hover {
+    background: green;
   }
 `;
 
-const DownloadButton = styled(Button)`
-&:hover {
-  background: green;
-}
-`;
-
-const ActionButtons = ({ clearForm, downloadHandler }) => {
+const ActionButtons = () => {
   return (
-    <div>
-      <ResetButton className="reset" type="button" clickHandler={clearForm} text="Reset form"/>
-      <DownloadButton className="download" type="submit" clickHandler={downloadHandler} text="Download PDF" />
-    </div>
+    <StyledButtons>
+      <Button className="download" type="submit" text="Download PDF" />
+    </StyledButtons>
   )
 }
 
