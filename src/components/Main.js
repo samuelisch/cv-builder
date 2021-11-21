@@ -67,15 +67,14 @@ const Main = () => {
   const changeUserInfo = (e) => {
     const id = e.target.id
     const value = e.target.value
-    let objCopy = {...userInfo}
-    objCopy[id] = value
-    setUserInfo(objCopy)
-    console.log(userInfo)
+    let userCopy = {...userInfo}
+    userCopy[id] = value
+    setUserInfo(userCopy)
   }
 
   const changeEducation = (e, uniqueId) => {
     const targetId = e.target.id
-    if (targetId === 'from' || 'to') {
+    if (targetId === 'from' || targetId === 'to') {
       e.target.value = e.target.value.slice(0, 4)
     }
     const targetValue = e.target.value
@@ -88,12 +87,33 @@ const Main = () => {
       return instance
     })
     setEducation(newEducation)
-    console.log(education)
+  }
+
+  const addEducationInstance = () => {
+    const educationCopy = [...education]
+    educationCopy.push(
+      {
+        id: uuidv4(),
+        schoolName: "",
+        city: "",
+        major: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+    )
+    setEducation(educationCopy)
+  }
+
+  const removeEducationInstance = () => {
+    const educationCopy = [...education]
+    educationCopy.pop()
+    setEducation(educationCopy)
   }
 
   const changeWork = (e, uniqueId) => {
     const targetId = e.target.id
-    if (targetId === 'from' || 'to') {
+    if (targetId === 'from' || targetId === 'to') {
       e.target.value = e.target.value.slice(0, 4)
     }
     const targetValue = e.target.value
@@ -108,21 +128,38 @@ const Main = () => {
     setWork(newWork)
   }
 
-  const downloadForm = (e) => {
-    e.preventDefault();
-    console.log('clicked download');
+  const addWorkInstance = () => {
+    const workCopy = [...work]
+    workCopy.push(
+      {
+        id: uuidv4(),
+        company: "",
+        position: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+    )
+    setWork(workCopy)
+  }
+
+  const removeWorkInstance = () => {
+    const workCopy = [...work]
+    workCopy.pop()
+    setWork(workCopy)
   }
 
   return (
     <StyledMain>
       <StyledContainer className="mainContainer">
-        <StyledForm className="mainForm" onSubmit={downloadForm}>
+        <StyledForm className="mainForm">
           <SectionHeader className="info" text="General Info" />
           <Info changeHandler={changeUserInfo} user={userInfo} />
           <SectionHeader className="education" text="Education" />
-          <Education changeHandler={changeEducation} education={education} />
+          <Education changeHandler={changeEducation} education={education} addInstance={addEducationInstance} removeInstance={removeEducationInstance} />
           <SectionHeader className="work" text="Work Experience" />
-          <Work changeHandler={changeWork} work={work} />
+          <Work changeHandler={changeWork} work={work} addInstance={addWorkInstance} removeInstance={removeWorkInstance} />
         </StyledForm>
       </StyledContainer>
 
