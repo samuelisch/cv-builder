@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid black;
   background-color: rgb(240, 240, 240);
 `;
