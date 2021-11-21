@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Input from '../assets/Input';
 
@@ -13,37 +13,8 @@ const StyledTwoSides = styled.div`
   justify-content: space-between;
 `;
 
-const Info = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [userCity, setUserCity] = useState('');
-  const [email, setEmail] = useState('');
-  const [number, setNumber] = useState('');
-  const [portfolio, setPortfolio] = useState('');
-
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-  }
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  }
-
-  const handleUserCityChange = (e) => {
-    setUserCity(e.target.value);
-  }
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  }
-
-  const handleNumberChange = (e) => {
-    setNumber(e.target.value)
-  }
-
-  const handlePortfolioChange = (e) => {
-    setPortfolio(e.target.value)
-  }
+const Info = ({ changeHandler, user }) => {
+  const { firstName, lastName, city, email, number, portfolio } = user
 
   return (
     <StyledSectionContainer>
@@ -53,7 +24,7 @@ const Info = () => {
           labelText="First name*"
           type="text"
           inputValue={firstName}
-          changeHandler={handleFirstNameChange}
+          changeHandler={changeHandler}
           required={true}
         />
         <Input 
@@ -61,7 +32,7 @@ const Info = () => {
           labelText="Last name"
           type="text"
           inputValue={lastName}
-          changeHandler={handleLastNameChange}
+          changeHandler={changeHandler}
           required={false}
         />
       </StyledTwoSides>
@@ -69,8 +40,8 @@ const Info = () => {
         inputId="city"
         labelText="City"
         type="text"
-        inputValue={userCity}
-        changeHandler={handleUserCityChange}
+        inputValue={city}
+        changeHandler={changeHandler}
         required={false}
       />
       <StyledTwoSides>
@@ -79,7 +50,7 @@ const Info = () => {
           labelText="E-mail*"
           type="email"
           inputValue={email}
-          changeHandler={handleEmailChange}
+          changeHandler={changeHandler}
           required={true}
         />
         <Input 
@@ -87,7 +58,7 @@ const Info = () => {
           labelText="Contact number*"
           type="number"
           inputValue={number}
-          changeHandler={handleNumberChange}
+          changeHandler={changeHandler}
           required={true}
         />
       </StyledTwoSides>
@@ -95,7 +66,7 @@ const Info = () => {
         inputId="portfolio"
         labelText="LinkedIn / Portfolio site"
         inputValue={portfolio}
-        changeHandler={handlePortfolioChange}
+        changeHandler={changeHandler}
         required={false}
       />
     </StyledSectionContainer>
