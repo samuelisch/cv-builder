@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SectionHeader from './assets/SectionHeader';
-import ActionButtons from './sections/ActionButtons';
-import View from './sections/View';
-import Info from './sections/Info';
-import Education from './sections/Education';
-import Work from './sections/Work';
+import ActionButtons from './view/ActionButtons';
+import Form from './form/Form';
+import View from './view/View';
 import {v4 as uuidv4} from 'uuid';
 
 const StyledMain = styled.div`
@@ -17,13 +14,6 @@ const StyledContainer = styled.div`
   border: 1px solid green;
   width: 658px;
   margin: 50px;
-`;
-
-const StyledForm = styled.form`
-  padding: 20px;
-  .sectionHeader {
-    font-size: 2rem;
-  }
 `;
 
 const Main = () => {
@@ -153,16 +143,19 @@ const Main = () => {
   return (
     <StyledMain>
       <StyledContainer className="mainContainer">
-        <StyledForm className="mainForm">
-          <SectionHeader className="info" text="General Info" />
-          <Info changeHandler={changeUserInfo} user={userInfo} />
-          <SectionHeader className="education" text="Education" />
-          <Education changeHandler={changeEducation} education={education} addInstance={addEducationInstance} removeInstance={removeEducationInstance} />
-          <SectionHeader className="work" text="Work Experience" />
-          <Work changeHandler={changeWork} work={work} addInstance={addWorkInstance} removeInstance={removeWorkInstance} />
-        </StyledForm>
+        <Form
+          userInfo={userInfo}
+          changeUserInfo={changeUserInfo}
+          education={education}
+          changeEducation={changeEducation}
+          addEducationInstance={addEducationInstance}
+          removeEducationInstance={removeEducationInstance}
+          work={work}
+          changeWork={changeWork}
+          addWorkInstance={addWorkInstance}
+          removeWorkInstance={removeWorkInstance}
+        />
       </StyledContainer>
-
       <StyledContainer>
         <View />
         <ActionButtons />
