@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import SectionHeader from './assets/SectionHeader';
 import ActionButtons from './sections/ActionButtons';
-import CVTemplate from './sections/EmptyCV';
 import View from './sections/View';
 import Info from './sections/Info';
-import Education from './sections/EduExp';
+import Education from './sections/Education';
 import {v4 as uuidv4} from 'uuid';
 
 const StyledMain = styled.div`
@@ -27,7 +26,66 @@ const StyledForm = styled.form`
 `;
 
 const Main = () => {
-  const [cv, setCV] = useState(CVTemplate);
+  const [userInfo, setUserInfo] = useState(
+    {
+      firstName: "",
+      lastName: "",
+      city: "",
+      email: "",
+      number: "",
+      portfolio: "",
+    }
+  );
+  const [education, setEducation] = useState(
+    [
+      {
+        id: uuidv4(),
+        schoolName: "",
+        city: "",
+        major: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+    ]
+  );
+  const [work, setWork] = useState(
+    [
+      {
+        id: uuidv4(),
+        company: "",
+        position: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+    ],
+  );
+
+  const changeUserInfo = (e) => {
+    const id = e.target.id
+    const value = e.target.value
+    let objCopy = {...userInfo}
+    objCopy[id] = value
+    setUserInfo(objCopy)
+    console.log(userInfo)
+  }
+
+  const changeEducation = (e, uniqueId) => {
+    const targetId = e.target.id
+    const targetValue = e.target.value
+    const newEducation = education.map(instance => {
+      if (instance.id === uniqueId) {
+        let instanceCopy = {...instance}
+        instanceCopy[targetId] = targetValue
+        return instanceCopy
+      }
+      return instance
+    })
+    setEducation(newEducation)
+    console.log(education)
+  }
 
   const downloadForm = (e) => {
     e.preventDefault();
@@ -39,9 +97,9 @@ const Main = () => {
       <StyledContainer className="mainContainer">
         <StyledForm className="mainForm" onSubmit={downloadForm}>
           <SectionHeader className="info" text="General Info" />
-          <Info />
+          <Info changeHandler={changeUserInfo} user={userInfo} />
           <SectionHeader className="education" text="Education" />
-          <Education />
+          <Education changeHandler={changeEducation} education={education} />
           <SectionHeader className="work" text="Work Experience" />
         </StyledForm>
       </StyledContainer>
