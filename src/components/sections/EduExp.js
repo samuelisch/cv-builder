@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Input from '../assets/Input';
+import Textbox from '../assets/Textbox';
 
 const StyledSectionContainer = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-
-  #description {
-    width: 100%;
-    height: 80px;
-  }
+  margin-bottom: 10px;
 `;
 
 const StyledTwoSides = styled.div`
@@ -68,7 +65,7 @@ const EduExp = ({ changeHandler, education, id }) => {
           required={false}
         />
       </StyledTwoSides>
-      <Input
+      <Textbox
         inputId="description"
         labelText="Description"
         inputValue={description}
