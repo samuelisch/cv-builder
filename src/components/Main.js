@@ -5,6 +5,7 @@ import ActionButtons from './sections/ActionButtons';
 import View from './sections/View';
 import Info from './sections/Info';
 import Education from './sections/Education';
+import Work from './sections/Work';
 import {v4 as uuidv4} from 'uuid';
 
 const StyledMain = styled.div`
@@ -74,6 +75,9 @@ const Main = () => {
 
   const changeEducation = (e, uniqueId) => {
     const targetId = e.target.id
+    if (targetId === 'from' || 'to') {
+      e.target.value = e.target.value.slice(0, 4)
+    }
     const targetValue = e.target.value
     const newEducation = education.map(instance => {
       if (instance.id === uniqueId) {
@@ -85,6 +89,23 @@ const Main = () => {
     })
     setEducation(newEducation)
     console.log(education)
+  }
+
+  const changeWork = (e, uniqueId) => {
+    const targetId = e.target.id
+    if (targetId === 'from' || 'to') {
+      e.target.value = e.target.value.slice(0, 4)
+    }
+    const targetValue = e.target.value
+    const newWork = work.map(instance => {
+      if (instance.id === uniqueId) {
+        let instanceCopy = {...instance}
+        instanceCopy[targetId] = targetValue
+        return instanceCopy
+      }
+      return instance
+    })
+    setWork(newWork)
   }
 
   const downloadForm = (e) => {
@@ -101,6 +122,7 @@ const Main = () => {
           <SectionHeader className="education" text="Education" />
           <Education changeHandler={changeEducation} education={education} />
           <SectionHeader className="work" text="Work Experience" />
+          <Work changeHandler={changeWork} work={work} />
         </StyledForm>
       </StyledContainer>
 
