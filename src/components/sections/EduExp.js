@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Input from '../assets/Input';
 
@@ -18,54 +18,25 @@ const StyledTwoSides = styled.div`
   justify-content: space-between;
 `;
 
-const Education = () => {
-  const [school, setSchool] = useState('');
-  const [schoolCity, setSchoolCity] = useState('');
-  const [major, setMajor] = useState('');
-  const [studyFromDate, setStudyFromDate] = useState('');
-  const [studyToDate, setStudyToDate] = useState('');
-  const [schoolDescription, setSchoolDescription] = useState('')
-
-  const handleSchoolChange = (e) => {
-    setSchool(e.target.value);
-  }
-
-  const handleSchoolCityChange = (e) => {
-    setSchoolCity(e.target.value);
-  }
-
-  const handleMajorChange = (e) => {
-    setMajor(e.target.value);
-  }
-
-  const handleStudyFromDateChange = (e) => {
-    setStudyFromDate(e.target.value.slice(0, 4));
-  }
-
-  const handleStudyToDateChange = (e) => {
-    setStudyToDate(e.target.value.slice(0, 4));
-  }
-
-  const handleSchoolDescriptionChange = (e) => {
-    setSchoolDescription(e.target.value)
-  }
+const EduExp = ({ changeHandler, education, id }) => {
+  const {schoolName, city, major, from, to, description} = education
 
   return (
     <StyledSectionContainer>
       <StyledTwoSides>
         <Input 
-          inputId="school"
+          inputId="schoolName"
           labelText="Name of Institute"
-          inputValue={school}
-          changeHandler={handleSchoolChange}
+          inputValue={schoolName}
+          changeHandler={(e) => changeHandler(e, id)}
           required={false}
         />
         <Input 
           inputId="city"
           labelText="City"
           type="text"
-          inputValue={schoolCity}
-          changeHandler={handleSchoolCityChange}
+          inputValue={city}
+          changeHandler={(e) => changeHandler(e, id)}
           required={false}
         />
       </StyledTwoSides>
@@ -74,7 +45,7 @@ const Education = () => {
         labelText="Title of Study"
         type="text"
         inputValue={major}
-        changeHandler={handleMajorChange}
+        changeHandler={(e) => changeHandler(e, id)}
         required={false}
       />
       <StyledTwoSides>
@@ -83,29 +54,29 @@ const Education = () => {
           labelText="Commenced Year"
           placeholderText="YYYY"
           type="number"
-          inputValue={studyFromDate}
-          changeHandler={handleStudyFromDateChange}
+          inputValue={from}
+          changeHandler={(e) => changeHandler(e, id)}
           required={false}
         />
         <Input 
-          inputId="from"
+          inputId="to"
           labelText="Expected / Graduation Year"
           placeholderText="YYYY"
           type="number"
-          inputValue={studyToDate}
-          changeHandler={handleStudyToDateChange}
+          inputValue={to}
+          changeHandler={(e) => changeHandler(e, id)}
           required={false}
         />
       </StyledTwoSides>
       <Input
-        inputId="schoolDescription"
+        inputId="description"
         labelText="Description"
-        inputValue={schoolDescription}
-        changeHandler={handleSchoolDescriptionChange}
+        inputValue={description}
+        changeHandler={(e) => changeHandler(e, id)}
         required={false}
       />
     </StyledSectionContainer>
   )
 }
 
-export default Education
+export default EduExp;
