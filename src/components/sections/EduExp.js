@@ -7,7 +7,7 @@ const StyledSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  #schoolDescription {
+  #description {
     width: 100%;
     height: 80px;
   }
