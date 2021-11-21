@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ActionButtons from './view/ActionButtons';
-import Form from './form/Form';
+import Form from './form/MainForm';
 import View from './view/View';
 import {v4 as uuidv4} from 'uuid';
 
