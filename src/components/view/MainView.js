@@ -3,6 +3,8 @@ import SectionHeader from '../assets/SectionHeader';
 import InfoView from './InfoView';
 import styled from 'styled-components';
 import EducationView from './EducationView';
+import WorkView from './WorkView';
+import ExpertiseView from './ExpertiseView';
 
 const StyledTemplate = styled.div`
   font-family: Garamond;
@@ -14,13 +16,28 @@ const StyledTemplate = styled.div`
 `;
 
 const View = (props) => {
-  const { userInfo, educationInfo, workInfo } = props
+  const { userInfo, educationInfo, workInfo, expertiseInfo } = props
   return (
     <StyledTemplate>
       <InfoView userInfo={userInfo} />
-      <SectionHeader className="educationView" text="EDUCATION" />
-      <EducationView educationInfo={educationInfo} />
-      <SectionHeader className="workView" text="WORK EXPERIENCE"/>
+      {educationInfo.length > 0 && 
+        <>
+          <SectionHeader className="educationView" text="EDUCATION" />
+          <EducationView educationInfo={educationInfo} />
+        </>
+      }
+      {workInfo.length > 0 && 
+        <>
+          <SectionHeader className="workView" text="WORK EXPERIENCE"/>
+          <WorkView workInfo={workInfo} />
+        </>
+      }
+      {expertiseInfo.items.length > 0 &&
+        <>
+          <SectionHeader className="expertiseView" text="EXPERTISE" />
+          <ExpertiseView expertiseInfo={expertiseInfo} />
+        </>
+      }
     </StyledTemplate>
   )
 }
