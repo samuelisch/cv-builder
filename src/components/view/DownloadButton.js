@@ -13,7 +13,7 @@ const StyledButtons = styled.div`
   }
 `;
 
-const ActionButtons = () => {
+const DownloadButton = () => {
   return (
     <StyledButtons>
       <Button className="download" type="submit" text="Download PDF" />
@@ -21,4 +21,4 @@ const ActionButtons = () => {
   )
 }
 
-export default ActionButtons;
+export default DownloadButton;

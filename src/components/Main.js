@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ActionButtons from './view/ActionButtons';
+import DownloadButton from './view/DownloadButton';
 import Form from './form/MainForm';
 import View from './view/View';
 import {v4 as uuidv4} from 'uuid';
@@ -158,7 +158,7 @@ const Main = () => {
       </StyledContainer>
       <StyledContainer>
         <View />
-        <ActionButtons />
+        <DownloadButton />
       </StyledContainer>
     </StyledMain>
   )
