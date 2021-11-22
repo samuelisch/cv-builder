@@ -12,10 +12,10 @@ const StyledButtons = styled.div`
   }
 `;
 
-const DownloadButton = () => {
+const DownloadButton = ({ handleClick }) => {
   return (
     <StyledButtons>
-      <Button className="download" type="submit" text="Download PDF" />
+      <Button className="download" type="button" text="Download PDF" onClick={handleClick} />
     </StyledButtons>
   )
 }

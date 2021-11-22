@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Form from './form/MainForm';
 import View from './view/MainView';
-// import DownloadButton from './view/DownloadButton';"" TEMPORARY
+import DownloadButton from './view/DownloadButton';
 import {v4 as uuidv4} from 'uuid';
 
 const StyledMain = styled.div`
@@ -161,6 +161,10 @@ const Main = () => {
     setExpertise({...expertise, items: newItems})
   }
 
+  const handleDownloadClick = () => {
+    
+  }
+
   return (
     <StyledMain>
       <StyledContainer className="mainContainer">
@@ -182,8 +186,8 @@ const Main = () => {
         />
       </StyledContainer>
       <StyledContainer className="mainView">
-        {/*<DownloadButton />*/""}
-        <View 
+        <DownloadButton />
+        <View
           userInfo={userInfo}
           educationInfo={education}
           workInfo={work}

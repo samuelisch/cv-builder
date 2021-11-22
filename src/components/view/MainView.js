@@ -18,7 +18,7 @@ const StyledTemplate = styled.div`
 const View = (props) => {
   const { userInfo, educationInfo, workInfo, expertiseInfo } = props
   return (
-    <StyledTemplate>
+    <StyledTemplate id="capture">
       <InfoView userInfo={userInfo} />
       {educationInfo.length > 0 && 
         <>
