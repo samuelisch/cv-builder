@@ -4,6 +4,8 @@ import Form from './form/MainForm';
 import View from './view/MainView';
 import DownloadButton from './view/DownloadButton';
 import {v4 as uuidv4} from 'uuid';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const StyledMain = styled.div`
   display: flex;
@@ -162,7 +164,17 @@ const Main = () => {
   }
 
   const handleDownloadClick = () => {
-    
+    const input = document.getElementById('capture')
+    console.log(input)
+    html2canvas(input)
+      .then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const width = pdf.internal.pageSize.getWidth();
+        const height = pdf.internal.pageSize.getHeight();
+        pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+        pdf.save(`CV_${userInfo.firstName}${userInfo.lastName}.pdf`);
+    });
   }
 
   return (
@@ -186,7 +198,7 @@ const Main = () => {
         />
       </StyledContainer>
       <StyledContainer className="mainView">
-        <DownloadButton />
+        <DownloadButton handleClick={handleDownloadClick} />
         <View
           userInfo={userInfo}
           educationInfo={education}

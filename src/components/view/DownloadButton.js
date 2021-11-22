@@ -15,7 +15,7 @@ const StyledButtons = styled.div`
 const DownloadButton = ({ handleClick }) => {
   return (
     <StyledButtons>
-      <Button className="download" type="button" text="Download PDF" onClick={handleClick} />
+      <Button className="download" type="button" text="Download PDF" clickHandler={handleClick} />
     </StyledButtons>
   )
 }
