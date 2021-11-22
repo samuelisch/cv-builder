@@ -20,10 +20,12 @@ const StyledRemoveButton = styled(Button)`
   margin: 10px;
 `;
 
-const ActionButtons = ({ addInstance, removeInstance }) => {
+const ActionButtons = ({ info, addInstance, removeInstance }) => {
   return (
     <div>
-      <StyledRemoveButton className="removeWork" type="button" clickHandler={removeInstance} text="Remove" />
+      {info.length > 0 && 
+        <StyledRemoveButton className="removeWork" type="button" clickHandler={removeInstance} text="Remove" />
+      }
       <StyledAddButton className="addWork" type="button" clickHandler={addInstance} text="Add" />
     </div>
   )
