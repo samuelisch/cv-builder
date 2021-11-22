@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Form from './form/MainForm';
 import View from './view/MainView';
-import DownloadButton from './view/DownloadButton';
+// import DownloadButton from './view/DownloadButton';"" TEMPORARY
 import {v4 as uuidv4} from 'uuid';
 
 const StyledMain = styled.div`
