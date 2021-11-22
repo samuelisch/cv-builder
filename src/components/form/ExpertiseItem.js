@@ -8,6 +8,7 @@ const StyledSectionContainer = styled.div`
 
   #text {
     width: 100%;
+    overflow-wrap: break-word;
   }
 `;
 

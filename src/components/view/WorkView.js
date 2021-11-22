@@ -25,6 +25,7 @@ const StyledInstance = styled.div`
     font-family: Georgia;
     margin: 5px 0 0;
     padding: 0 15px;
+    overflow-wrap: break-word;
   }
 `;
 

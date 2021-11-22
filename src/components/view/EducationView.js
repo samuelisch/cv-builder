@@ -10,9 +10,6 @@ const StyledInstance = styled.div`
   .titleAndDate {
     font-size: 1.3rem;
     font-weight: bold;
-  }
-
-  .double {
     display: flex;
     justify-content: space-between;
   }
@@ -22,9 +19,11 @@ const StyledInstance = styled.div`
   }
 
   .description {
+    flex: 1;
     font-family: Georgia;
-    margin: 5px 0 0;
+    margin: 0;
     padding: 0 15px;
+    overflow-wrap: break-word;
   }
 `;
 
@@ -32,18 +31,15 @@ const StyledInstance = styled.div`
 const EducationView = ({ educationInfo }) => {
   const educationInstances = educationInfo.map(instance => (
     <StyledInstance key={instance.id}>
-      <div className="titleAndDate double">
+      <div className="titleAndDate">
         <div className="name">{instance.schoolName}</div>
         <div className="date">{instance.from} - {instance.to}</div>
       </div>
-      <div className="major double">
-      <div>{instance.major}</div>
-      <div>{instance.city}</div>
-      </div>
+      <div className="major">{instance.major}</div>
       {instance.description &&
-        <ul className="description">
-          <li>{instance.description}</li>
-        </ul>
+      <ul className="description">
+        <li>{instance.description}</li>
+      </ul>
       }
     </StyledInstance>
   ));
