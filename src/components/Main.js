@@ -41,7 +41,7 @@ const Main = () => {
       {
         id: uuidv4(),
         schoolName: "Nanyang Academy of Fine Arts / Royal College of Music",
-        city: "Singapore",
+        city: "Singapore / London",
         major: "Bachelor of Music with Honours (BMus)",
         from: "2018",
         to: "2020",
@@ -218,6 +218,7 @@ const Main = () => {
           userInfo={userInfo}
           educationInfo={education}
           workInfo={work}
+          expertiseInfo={expertise}
         />
       </StyledContainer>
       <DownloadButton />

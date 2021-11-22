@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import Input from '../assets/Input';
 
 const StyledSectionContainer = styled.div`
-  width: 70%;
+  width: 100%;
   margin-bottom: 10px;
+
+  #text {
+    width: 100%;
+  }
 `;
 
 const ExpertiseItem = ({ changeHandler, expertise, id }) => {
@@ -15,6 +19,7 @@ const ExpertiseItem = ({ changeHandler, expertise, id }) => {
       <Input 
         inputId="text"
         labelText="Subject"
+        placeholderText="Discipline: subjects"
         inputValue={example}
         changeHandler={(e) => changeHandler(e, id)}
         required={false}
