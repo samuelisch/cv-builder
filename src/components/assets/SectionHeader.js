@@ -7,7 +7,7 @@ const StyledSectionHeader = styled.h2`
 
 const StyledLine = styled.hr`
   margin-top: 0;
-  border: 1px solid rgb(10, 10, 10);
+  border-top: 1px solid rgb(10, 10, 10);
 `;
 
 const SectionHeader = ({ className, text }) => {
