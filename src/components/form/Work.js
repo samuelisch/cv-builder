@@ -15,7 +15,7 @@ const Work = ({ changeHandler, work, addInstance, removeInstance }) => {
   return (
     <div>
       {workInstances}
-      <ActionButtons addInstance={addInstance} removeInstance={removeInstance} />
+      <ActionButtons info={work} addInstance={addInstance} removeInstance={removeInstance} />
     </div>
   )
 }

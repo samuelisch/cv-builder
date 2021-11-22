@@ -15,7 +15,7 @@ const Education = ({ changeHandler, education, addInstance, removeInstance }) =>
   return (
     <div>
       {educationInstances}
-      <ActionButtons addInstance={addInstance} removeInstance={removeInstance} />
+      <ActionButtons info={education} addInstance={addInstance} removeInstance={removeInstance} />
     </div>
   )
 }
