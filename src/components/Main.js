@@ -8,75 +8,43 @@ import {v4 as uuidv4} from 'uuid';
 const StyledMain = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1320px) {
+    flex-direction: row;
+    justify-content: space-around;
+
+    .mainView {
+      max-height: 877px;
+      position: sticky;
+      top: 50px;
+    }
+  }
 `;
 
 const StyledContainer = styled.div`
   border: 1px solid green;
   width: 620px;
-  margin: 50px;
+  margin: 30px 20px;
 `;
 
 const Main = () => {
   const [userInfo, setUserInfo] = useState(
     {
-      firstName: "Samuel",
-      lastName: "Chan",
-      city: "Singapore",
-      email: "cwksamuel@gmail.com",
-      number: "91120075",
-      portfolio: "www.linkedin.com/in/samuel-chan-4622bba3",
+      firstName: "",
+      lastName: "",
+      city: "",
+      email: "",
+      number: "",
+      portfolio: "",
     }
   );
-  const [education, setEducation] = useState(
-    [
-      {
-        id: uuidv4(),
-        schoolName: "National University of Singapore",
-        city: "Singapore",
-        major: "Graduate Certificate in Computing - *currently ongoing part-time",
-        from: "2021",
-        to: "2022",
-        description: "Led several outreach workshops conducted for the public’s music enrichment",
-      },
-      {
-        id: uuidv4(),
-        schoolName: "Nanyang Academy of Fine Arts / Royal College of Music",
-        city: "Singapore / London",
-        major: "Bachelor of Music with Honours (BMus)",
-        from: "2018",
-        to: "2020",
-        description: "Represented student body in module feedback and the school’s adoption of more frequent chamber group formations and performances",
-      }
-    ]
-  );
-  const [work, setWork] = useState(
-    [
-      {
-        id: uuidv4(),
-        company: "Aureus Academy ",
-        position: "Administrative Executive",
-        city: "Singapore",
-        from: "2020",
-        to: "2021",
-        description: "Largest music education business in Singapore, I worked with a team of five others in sales, client follow-ups and Salesforce support, in phone and in person, while handling all operating aspects of the branch’s existing 1800 enrolled students under 50 teachers",
-      },
-      {
-        id: uuidv4(),
-        company: "MOE Freelance Instrumental Tutor ",
-        position: "Clarinet coach for school bands",
-        city: "Singapore",
-        from: "2018",
-        to: "2020",
-        description: "As clarinet tutor of several secondary and primary school bands, I drew up weekly lesson plans for each session per school, and ensured proper delivery of theory and performance practices",
-      },
-    ],
-  );
+  const [education, setEducation] = useState([]);
+  const [work, setWork] = useState([]);
   const [expertise, setExpertise] = useState({
     expertise: "",
     portfolio : "",
     items: []
-  }
-  )
+  })
 
   const changeUserInfo = (e) => {
     const id = e.target.id
@@ -213,7 +181,8 @@ const Main = () => {
           removeExpertiseInstance={removeExpertiseInstance}
         />
       </StyledContainer>
-      <StyledContainer>
+      <StyledContainer className="mainView">
+        {/*<DownloadButton />*/""}
         <View 
           userInfo={userInfo}
           educationInfo={education}
@@ -221,7 +190,6 @@ const Main = () => {
           expertiseInfo={expertise}
         />
       </StyledContainer>
-      <DownloadButton />
     </StyledMain>
   )
 }

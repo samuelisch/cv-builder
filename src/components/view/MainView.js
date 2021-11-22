@@ -9,7 +9,7 @@ import ExpertiseView from './ExpertiseView';
 const StyledTemplate = styled.div`
   font-family: Garamond;
   font-size: 1.1rem;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   height: 877px;

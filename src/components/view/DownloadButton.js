@@ -6,7 +6,6 @@ const StyledButtons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 50px;
 
   .download:hover {
     background: green;

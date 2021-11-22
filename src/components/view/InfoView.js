@@ -25,9 +25,13 @@ const InfoView = ({ userInfo }) => {
     <div>
       <StyledHeader>{firstName} {lastName}</StyledHeader>
       <StyledDetails>
-        <span>{email}</span>
-        <span> || </span>
-        <span>{number}</span>
+        {email && 
+          <>
+            <span>{email}</span>
+            <span> || </span>
+            <span>{number}</span>
+          </>
+        }
         {city && 
           <>
           <span> || </span>
