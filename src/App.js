@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import { createGlobalStyle } from 'styled-components';
@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  useEffect(() => {
+    document.title = "CV Builder";  
+  }, []);
+
   return (
     <div className="content">
       <GlobalStyle />
