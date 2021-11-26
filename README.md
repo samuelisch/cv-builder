@@ -6,13 +6,13 @@ I realised that there are a ton of questions every now and then, with regards to
 
 I have created an implementation of a CV creator based on a template that I use for my own CV. This template has clear headings, and simple yet readable sections, where styles only differ to separate organisations / date, positions / locations, and descriptions.
 
-### Access Deployment
+## Access Deployment
 
 A working production build is deployed on [Github Pages](https://facebook.github.io/create-react-app/docs/running-tests)
 
 All information entered into the form will be erased upon reload.
 
-### Features
+## Features
 
 The app features a Form, and a sticky template element. This template element will fill up whenever information is entered into the form. The form features a few Sub Sections:
 
