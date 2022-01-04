@@ -1,16 +1,18 @@
 # CV-Builder Application
 
-## Motivation
-
-This is a webapp that allows a user to build their own pre-formatted CV with just form inputs.
-
-### Access Deployment
+## Access Deployment
 
 A working production build is deployed on [Github Pages](https://facebook.github.io/create-react-app/docs/running-tests)
 
 All information entered into the form will be erased upon reload.
 
-### Features
+## Motivation
+
+I realised that there are a ton of questions every now and then, with regards to building a presentable CV for job applications. Although I believe that the structure of CVs should be dependent on the nature of the applicants' career choices, the CV should still be simple, clear and readable.
+
+I have created an implementation of a CV creator based on a template that I use for my own CV. This template has clear headings, and simple yet readable sections, where styles only differ to separate organisations / date, positions / locations, and descriptions.
+
+## Features
 
 The app features a Form, and a sticky template element. This template element will fill up whenever information is entered into the form. The form features a few Sub Sections:
 
@@ -21,7 +23,7 @@ The app features a Form, and a sticky template element. This template element wi
 
 ### Technologies used
 
-This application is created with React, as part of The Odin Project's CV-App project implementation. There is heavy use of State Hooks. 
+This application is created with React, and the main learning point of the project is the use of State Hooks. 
 
 The project is styled with styled-components. 
 
