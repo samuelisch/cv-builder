@@ -2,7 +2,7 @@
 
 ## Access Deployment
 
-A working production build is deployed on [Github Pages](https://facebook.github.io/create-react-app/docs/running-tests)
+A working production build is deployed on [Github Pages](https://samuelisch.github.io/cv-builder/)
 
 All information entered into the form will be erased upon reload.
 
